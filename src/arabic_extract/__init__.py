@@ -1,8 +1,8 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+﻿# This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-"""arabic-ocr — clean Arabic text extraction from PDFs and images.
+"""arabic-extract — clean Arabic text extraction from PDFs and images.
 
 Combines PDF text extraction (pdfplumber), image OCR (Tesseract / EasyOCR),
 and arabic-repair into a single pipeline that returns clean logical-order
@@ -10,7 +10,7 @@ Arabic text ready for NLP, LLMs, and search.
 
 Quick start::
 
-    import arabic_ocr as aocr
+    import arabic_extract as aocr
 
     # From a PDF (text-layer or scanned — auto-detected per page)
     result = aocr.extract("document.pdf")
@@ -21,16 +21,16 @@ Quick start::
     result = aocr.extract("scan.jpg")
     print(result.text)
 
-    # Chain into CAMeL Tools (arabic-ocr already does this by default)
+    # Chain into CAMeL Tools (arabic-extract already does this by default)
     result = aocr.extract("document.pdf", normalize=True)
 
 Install extras::
 
-    pip install arabic-ocr[pdf]         # PDF text extraction only
-    pip install arabic-ocr[tesseract]   # + Tesseract OCR (needs binary)
-    pip install arabic-ocr[easyocr]     # + EasyOCR (pure Python)
-    pip install arabic-ocr[pymupdf]     # + PyMuPDF for scanned PDF rendering
-    pip install arabic-ocr[all]         # everything
+    pip install arabic-extract[pdf]         # PDF text extraction only
+    pip install arabic-extract[tesseract]   # + Tesseract OCR (needs binary)
+    pip install arabic-extract[easyocr]     # + EasyOCR (pure Python)
+    pip install arabic-extract[pymupdf]     # + PyMuPDF for scanned PDF rendering
+    pip install arabic-extract[all]         # everything
 """
 from __future__ import annotations
 

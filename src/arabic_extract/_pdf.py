@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+﻿# This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -67,8 +67,8 @@ def _render_page_to_image(page) -> bytes:
     raise ImportError(
         "Cannot render scanned PDF page to image.\n"
         "Install one of:\n"
-        "  pip install arabic-ocr[pymupdf]    (recommended, no system deps)\n"
-        "  pip install arabic-ocr[pdf2image]  (requires poppler)"
+        "  pip install arabic-extract[pymupdf]    (recommended, no system deps)\n"
+        "  pip install arabic-extract[pdf2image]  (requires poppler)"
     )
 
 
@@ -107,8 +107,8 @@ def extract_pdf(
     except ImportError:
         raise ImportError(
             "pdfplumber is required for PDF extraction.\n"
-            "Install it with: pip install arabic-ocr[pdf]\n"
-            "or: pip install arabic-ocr[all]"
+            "Install it with: pip install arabic-extract[pdf]\n"
+            "or: pip install arabic-extract[all]"
         )
 
     path = Path(pdf_path)

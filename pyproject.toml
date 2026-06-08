@@ -1,9 +1,9 @@
-[build-system]
+﻿[build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "arabic-ocr"
+name = "arabic-extract"
 version = "0.1.0"
 description = "Clean Arabic text extraction from PDFs and scanned images — OCR + visual-order repair in one pipeline"
 readme = { file = "README.md", content-type = "text/markdown" }
@@ -42,12 +42,12 @@ all        = [
 ]
 
 [project.urls]
-Homepage    = "https://github.com/balswyan/arabic-ocr"
-Source      = "https://github.com/balswyan/arabic-ocr"
-"Bug Tracker" = "https://github.com/balswyan/arabic-ocr/issues"
+Homepage    = "https://github.com/balswyan/arabic-extract"
+Source      = "https://github.com/balswyan/arabic-extract"
+"Bug Tracker" = "https://github.com/balswyan/arabic-extract/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/arabic_ocr"]
+packages = ["src/arabic_extract"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

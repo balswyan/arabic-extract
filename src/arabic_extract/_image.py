@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+﻿# This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -78,9 +78,9 @@ def ocr_image(image_path: str | Path, engine: str = "auto") -> str:
         except ImportError:
             raise ImportError(
                 "No OCR engine available. Install one of:\n"
-                "  pip install arabic-ocr[tesseract]   (+ Tesseract binary)\n"
-                "  pip install arabic-ocr[easyocr]\n"
-                "  pip install arabic-ocr[all]\n\n"
+                "  pip install arabic-extract[tesseract]   (+ Tesseract binary)\n"
+                "  pip install arabic-extract[easyocr]\n"
+                "  pip install arabic-extract[all]\n\n"
                 f"Tesseract error: {e_tess}"
             )
 

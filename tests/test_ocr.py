@@ -1,4 +1,4 @@
-"""Tests for arabic-ocr.
+﻿"""Tests for arabic-extract.
 
 OCR engine tests are skipped gracefully when Tesseract / EasyOCR are absent.
 PDF tests use a synthetic in-memory PDF built with reportlab (optional) or
@@ -15,8 +15,8 @@ from unittest.mock import patch, MagicMock
 import pytest
 import arabic_rt as ar_rt
 import arabic_repair as ar_repair
-import arabic_ocr as aocr
-from arabic_ocr._pipeline import run_pipeline, contamination_summary
+import arabic_extract as aocr
+from arabic_extract._pipeline import run_pipeline, contamination_summary
 
 
 # ---------------------------------------------------------------------------
@@ -219,7 +219,7 @@ class TestImageOCR:
         fake_img = tmp_path / "scan.jpg"
         fake_img.write_bytes(b"fake image bytes")
 
-        with patch("arabic_ocr._image.ocr_image", return_value=baked):
+        with patch("arabic_extract._image.ocr_image", return_value=baked):
             result = aocr.extract_image(fake_img, normalize=False)
 
         assert result.text == "مرحبا بالعالم"
@@ -230,7 +230,7 @@ class TestImageOCR:
         fake_img = tmp_path / "scan.png"
         fake_img.write_bytes(b"fake image bytes")
 
-        with patch("arabic_ocr._image.ocr_image", return_value=baked):
+        with patch("arabic_extract._image.ocr_image", return_value=baked):
             result = aocr.extract_image(fake_img, normalize=False)
 
         assert "Hello" in result.text
@@ -242,7 +242,7 @@ class TestImageOCR:
         fake_img = tmp_path / "scan.jpg"
         fake_img.write_bytes(b"fake image bytes")
 
-        with patch("arabic_ocr._image.ocr_image", return_value=baked):
+        with patch("arabic_extract._image.ocr_image", return_value=baked):
             result = aocr.extract_image(fake_img, normalize=False)
 
         assert result.contamination["needed_repair"] is True
@@ -252,7 +252,7 @@ class TestImageOCR:
         fake_img = tmp_path / "scan.jpeg"
         fake_img.write_bytes(b"fake")
 
-        with patch("arabic_ocr._image.ocr_image", return_value=baked):
+        with patch("arabic_extract._image.ocr_image", return_value=baked):
             result = aocr.extract(fake_img, normalize=False)
 
         assert result.text == "مرحبا"
@@ -265,11 +265,11 @@ class TestImageOCR:
 class TestLiveOCREngine:
     @pytest.fixture(autouse=True)
     def require_any_engine(self):
-        from arabic_ocr._image import available_engine
+        from arabic_extract._image import available_engine
         if available_engine() is None:
             pytest.skip("No OCR engine installed (tesseract or easyocr)")
 
     def test_available_engine_returns_string(self):
-        from arabic_ocr._image import available_engine
+        from arabic_extract._image import available_engine
         eng = available_engine()
         assert eng in ("tesseract", "easyocr")

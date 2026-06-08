@@ -1,4 +1,4 @@
-# arabic-ocr
+﻿# arabic-extract
 
 Clean Arabic text extraction from PDFs and scanned images — one call, clean output.
 
@@ -9,17 +9,17 @@ into a single pipeline. Handles the visual-order problem that breaks standard Ar
 
 Arabic PDFs and scanned documents store text in **visual order** with **presentation-form characters**.
 Standard tools (NFKC, CAMeL Tools) remove the presentation forms but cannot restore the reversed
-word order — retrieval recall stays broken at ~27%. arabic-ocr applies arabic-repair automatically,
+word order — retrieval recall stays broken at ~27%. arabic-extract applies arabic-repair automatically,
 restoring both letter forms and word order before the text reaches your NLP pipeline.
 
 ## Install
 
 ```bash
-pip install arabic-ocr[pdf]          # PDF text-layer extraction
-pip install arabic-ocr[tesseract]    # + image OCR via Tesseract (needs binary)
-pip install arabic-ocr[easyocr]      # + image OCR via EasyOCR (pure Python, ~200 MB)
-pip install arabic-ocr[pymupdf]      # + scanned PDF rendering via PyMuPDF
-pip install arabic-ocr[all]          # everything
+pip install arabic-extract[pdf]          # PDF text-layer extraction
+pip install arabic-extract[tesseract]    # + image OCR via Tesseract (needs binary)
+pip install arabic-extract[easyocr]      # + image OCR via EasyOCR (pure Python, ~200 MB)
+pip install arabic-extract[pymupdf]      # + scanned PDF rendering via PyMuPDF
+pip install arabic-extract[all]          # everything
 ```
 
 **Tesseract binary** (for the tesseract extra):
@@ -30,7 +30,7 @@ pip install arabic-ocr[all]          # everything
 ## Quick start
 
 ```python
-import arabic_ocr as aocr
+import arabic_extract as aocr
 
 # PDF — auto-detects text layer vs scanned, repairs each page
 result = aocr.extract("document.pdf")
@@ -89,7 +89,7 @@ for page in result.pages:
 |---|---|
 | [arabic-rt](https://pypi.org/project/arabic-rt/) | Core shaping / fix / unfix engine |
 | [arabic-repair](https://pypi.org/project/arabic-repair/) | Detect and repair visual-order contamination |
-| [arabic-ocr](https://pypi.org/project/arabic-ocr/) | Full PDF + image extraction pipeline |
+| [arabic-extract](https://pypi.org/project/arabic-extract/) | Full PDF + image extraction pipeline |
 | [arabic-benchmark](https://github.com/balswyan/arabic-benchmark) | Benchmark proving the reordering gap |
 
 ## License
