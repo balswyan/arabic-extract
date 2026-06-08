@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arabic-ocr"
+version = "0.1.0"
+description = "Clean Arabic text extraction from PDFs and scanned images — OCR + visual-order repair in one pipeline"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { text = "MPL-2.0" }
+authors = [{ name = "Bandar AlSwyan" }]
+requires-python = ">=3.9"
+dependencies = ["arabic-repair>=0.1.0"]
+keywords = [
+    "arabic", "ocr", "pdf", "text-extraction", "nlp",
+    "bidi", "rtl", "presentation-forms", "tesseract", "easyocr",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Graphics :: Capture :: Scanners",
+]
+
+[project.optional-dependencies]
+pdf        = ["pdfplumber>=0.9"]
+tesseract  = ["pytesseract>=0.3", "Pillow>=9"]
+easyocr    = ["easyocr>=1.7"]
+pymupdf    = ["PyMuPDF>=1.23"]
+pdf2image  = ["pdf2image>=1.16", "Pillow>=9"]
+dev        = ["pytest>=7", "pdfplumber>=0.9", "Pillow>=9"]
+all        = [
+    "pdfplumber>=0.9",
+    "pytesseract>=0.3",
+    "Pillow>=9",
+    "easyocr>=1.7",
+    "PyMuPDF>=1.23",
+]
+
+[project.urls]
+Homepage    = "https://github.com/balswyan/arabic-ocr"
+Source      = "https://github.com/balswyan/arabic-ocr"
+"Bug Tracker" = "https://github.com/balswyan/arabic-ocr/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/arabic_ocr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
