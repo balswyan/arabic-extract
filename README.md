@@ -1,9 +1,17 @@
 ﻿# arabic-extract
 
-Clean Arabic text extraction from PDFs and scanned images — one call, clean output.
+**End-to-end Arabic text extraction from PDFs and scanned images — OCR + visual-order repair in one call.**
 
-Combines PDF text extraction, image OCR, and [arabic-repair](https://pypi.org/project/arabic-repair/)
-into a single pipeline. Handles the visual-order problem that breaks standard Arabic NLP pipelines.
+[![PyPI](https://img.shields.io/pypi/v/arabic-extract.svg)](https://pypi.org/project/arabic-extract/)
+[![Python](https://img.shields.io/pypi/pyversions/arabic-extract.svg)](https://pypi.org/project/arabic-extract/)
+[![License: MPL-2.0](https://img.shields.io/badge/license-MPL--2.0-brightgreen.svg)](LICENSE)
+[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/balswyan/arabic-rt)
+
+**[🤗 Live demo](https://huggingface.co/spaces/balswyan/arabic-rt)** · **[📖 Article](https://huggingface.co/spaces/balswyan/arabic-nlp)** · **[📦 PyPI](https://pypi.org/project/arabic-extract/)**
+
+Combines pdfplumber, Tesseract / EasyOCR, and [arabic-repair](https://pypi.org/project/arabic-repair/)
+into a single pipeline. Auto-detects text-layer vs scanned pages. Repairs visual-order contamination
+automatically so the output is clean logical Arabic ready for NLP, LLMs, and search.
 
 ![arabic-extract demo](docs/demo.png)
 
