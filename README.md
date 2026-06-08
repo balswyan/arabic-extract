@@ -5,6 +5,8 @@ Clean Arabic text extraction from PDFs and scanned images — one call, clean ou
 Combines PDF text extraction, image OCR, and [arabic-repair](https://pypi.org/project/arabic-repair/)
 into a single pipeline. Handles the visual-order problem that breaks standard Arabic NLP pipelines.
 
+![arabic-extract demo](docs/demo.png)
+
 ## The problem it solves
 
 Arabic PDFs and scanned documents store text in **visual order** with **presentation-form characters**.
