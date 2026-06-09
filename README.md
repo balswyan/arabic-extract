@@ -13,6 +13,8 @@ Combines pdfplumber, Tesseract / EasyOCR, and [arabic-repair](https://pypi.org/p
 into a single pipeline. Auto-detects text-layer vs scanned pages. Repairs visual-order contamination
 automatically so the output is clean logical Arabic ready for NLP, LLMs, and search.
 
+![Logical vs visual-order Arabic — the bytes differ even when the screen looks identical; NFKC cannot fix the order, arabic-repair does](docs/pipeline.png)
+
 ![arabic-extract demo](docs/demo.png)
 
 ## The problem it solves
